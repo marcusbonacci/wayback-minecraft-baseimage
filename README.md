@@ -1,5 +1,7 @@
 # Wayback Minecraft (Baseimage)
 
+# NOTE: WORK IN PROGRESS
+
 ## Objective:
 Connect Minecraft Servers together through a network allowing users to traverse archived servers.
 
