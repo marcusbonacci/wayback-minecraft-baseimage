@@ -3,10 +3,12 @@ package net.gwaii;
 import net.gwaii.config.ServerConfig;
 import net.gwaii.events._AsyncPlayerConfigurationEvent;
 import net.gwaii.events._PlayerSpawnEvent;
+import net.gwaii.events._ServerListPingEvent;
 import net.minestom.server.Auth;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.event.player.PlayerSpawnEvent;
+import net.minestom.server.event.server.ServerListPingEvent;
 
 import java.util.Map;
 import java.util.Objects;
@@ -27,7 +29,7 @@ public class Main {
         var server = MinecraftServer.init(new Auth.Online());
 
         // Messy, fix with accessors and helpers
-        config = ServerConfig.getConfig().config;
+        config = ServerConfig.getConfig();
         port = (Integer) config.get("SERVER_PORT");
         motd = (String) config.get("SERVER_MOTD");
 
@@ -41,6 +43,7 @@ public class Main {
 //        globalEventHandler.addChild(CoreEventNode);
         globalEventHandler.addListener(AsyncPlayerConfigurationEvent.class, new _AsyncPlayerConfigurationEvent(startingInstance));
         globalEventHandler.addListener(PlayerSpawnEvent.class, new _PlayerSpawnEvent(startingInstance));
+        globalEventHandler.addListener(ServerListPingEvent.class, new _ServerListPingEvent());
 
         return server;
     }
