@@ -1,6 +1,6 @@
 package net.gwaii;
 
-import net.minestom.server.MinecraftServer;
+import net.gwaii.core.classes.Server;
 
 public class Main {
     void main() {

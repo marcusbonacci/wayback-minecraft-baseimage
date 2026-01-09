@@ -1,5 +1,6 @@
-package net.gwaii;
+package net.gwaii.core.classes;
 
+import net.gwaii.core.CoreModule;
 import net.minestom.server.MinecraftServer;
 
 public class Server {
@@ -26,10 +27,14 @@ public class Server {
     public MinecraftServer initializeServer() {
         var server = MinecraftServer.init();
 
-        // 1. Register dimensions
-        // 2. Register biomes
-        // 3. Register commands
-        // 4. Register events
+        // Module Registration
+            // 1. Register dimensions
+            // 2. Register biomes
+            // 3. Register commands
+            // 4. Register
+
+        // Will switch to module::new when scaffolding if more flushed out.
+        new CoreModule();
 
         return server;
     }
