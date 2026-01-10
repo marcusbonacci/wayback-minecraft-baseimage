@@ -1,6 +1,7 @@
 package net.gwaii.core.classes;
 
 import net.gwaii.core.CoreModule;
+import net.minestom.server.Auth;
 import net.minestom.server.MinecraftServer;
 
 public class Server {
@@ -25,7 +26,7 @@ public class Server {
     }
 
     public MinecraftServer initializeServer() {
-        var server = MinecraftServer.init();
+        var server = MinecraftServer.init(new Auth.Online());
 
         // Module Registration
             // 1. Register dimensions
